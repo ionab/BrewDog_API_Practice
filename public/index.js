@@ -17,19 +17,45 @@ const requestComplete = function(){
    const beers = JSON.parse(this.response);
    console.log(this);
    populateList(beers);
+
+
 }
 
 
 const populateList = function(beers){
    const ul = document.querySelector('#beer-list');
    beers.forEach(function(beer){
-     const li = document.createElement('li');
-     li.textContent = beer.name;
+     const button = document.createElement('button');
      const img = document.createElement("img");
      img.src = beer.image_url;
-     img.height = 50;
-     ul.appendChild(li);
-     li.appendChild(img);
+     img.height = 120;
+     img.padding = 15;
+     img.alt = beer.name;
+     ul.appendChild(button);
+     button.appendChild(img);
+     button.addEventListener('click', function(){
+       handlebuttonclick(beer)
+     });
    });
+
  }
+
+const handlebuttonclick = function(beer){
+
+  const ul = document.querySelector('#beer-details');
+
+  const liname = document.querySelector("#name");
+  const tagline = document.querySelector("#tagline");
+  const firstBrewed = document.querySelector("#firstBrewed");
+  const description = document.querySelector("#description");
+  const abv = document.querySelector("#abv");
+
+  liname.textContent = beer.name;
+  tagline.textContent = beer.tagline;
+  firstBrewed.textContent = "First brewed: " + beer.first_brewed;
+  description.textContent = beer.description;
+  abv.textContent = "abv: " +  beer.abv;
+
+  ul.appendChild(liname, tagline, firstBrewed, description, abv);
+}
 window.addEventListener('load', app);
