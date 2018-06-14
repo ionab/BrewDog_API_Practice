@@ -2,14 +2,13 @@ body {
   background-image: url("https://media.timeout.com/images/101694697/image.jpg");
   background-repeat: no-repeat;
   background-position: top center;
-
-
+  background-color: grey;
+  background-blend-mode: screen;
 }
 h1,h2 {
   text-align: center;
   color: white;
-  text-shadow: 3px 2px grey;
-}
+text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;}
 
 ul {
   font-size: 2em;
@@ -17,8 +16,11 @@ ul {
   text-align: center;
   text-align: center;
   color: white;
-  text-shadow: 3px 2px grey;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 #name {
   font-size: 6em;
+}
+button:hover {
+  cursor: pointer;
 }
